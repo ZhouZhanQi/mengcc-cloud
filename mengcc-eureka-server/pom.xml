@@ -52,7 +52,7 @@
                 <version>1.4.9</version>
                 <configuration>
                     <repository>${docker-images.prefix}/${project.artifactId}</repository>
-                    <dockerDictionary>${basedir}/src/main/docker/</dockerDictionary>
+                    <dockerDirectory>${basedir}/src/main/docker/</dockerDirectory>
                     <buildArgs>
                         <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
                     </buildArgs>
