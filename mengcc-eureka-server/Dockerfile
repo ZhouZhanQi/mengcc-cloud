@@ -1,5 +1,5 @@
 # 基于哪个镜像
-FROM java:8
+FROM openjdk:8-jdk-alpine
 # 降本地文件挂载到当前容器
 VOLUME /tmp
 
