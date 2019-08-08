@@ -3,7 +3,7 @@ FROM openjdk:8-jdk-alpine
 # 降本地文件挂载到当前容器
 VOLUME /tmp
 
-ADD mengcc-eureka-server-0.0.1-SNAPSHOT.jar app.jar
+ADD /target/mengcc-eureka-server-0.0.1-SNAPSHOT.jar app.jar
 
 ENV JAVA_OPTS="\
 -server \
