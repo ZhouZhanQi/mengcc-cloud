@@ -17,7 +17,7 @@
         <docker-images.prefix>mengcc-cloud</docker-images.prefix>
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
         <swagger-ui.version>2.9.2</swagger-ui.version>
-        <spring-boot-admin.version>2.1.4</spring-boot-admin.version>
+        <spring-boot-admin.version>2.1.6</spring-boot-admin.version>
         <doyd-common.version>1.1-SNAPSHOT</doyd-common.version>
     </properties>
 

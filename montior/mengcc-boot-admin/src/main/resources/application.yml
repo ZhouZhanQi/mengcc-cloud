@@ -1,0 +1,33 @@
+info:
+  description: 微服务健康和日志监控
+  version: 1.0.0
+server:
+  port: 7020
+spring:
+  application:
+    name: mengcc-boot-admin
+  security:
+    user:
+      password: 825116
+      name: zhouzq
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    endpoint:
+      health:
+        show-details: ALWAYS
+  endpoint:
+    logfile:
+      external-file: /mengcc-cloud/logs/mengcc-boot-admin.log
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    eureka-service-url-poll-interval-seconds: 60
+    registry-fetch-interval-seconds: 15
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+logging:
+  file: /mengcc-cloud/logs/mengcc-boot-admin.log
