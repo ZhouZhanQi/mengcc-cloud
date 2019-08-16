@@ -24,10 +24,12 @@ management:
 eureka:
   instance:
     prefer-ip-address: true
+    ip-address: 172.24.174.30
+    hostname: 172.24.174.30
   client:
     eureka-service-url-poll-interval-seconds: 60
     registry-fetch-interval-seconds: 15
     serviceUrl:
-      defaultZone: http://127.0.0.1:8761/eureka/
+      defaultZone: http://172.24.174.30:8761/eureka/
 logging:
   file: /mengcc-cloud/logs/mengcc-boot-admin.log
