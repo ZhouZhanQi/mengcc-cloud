@@ -29,8 +29,8 @@ management:
 eureka:
   instance:
     prefer-ip-address: true
-    ip-address: 192.168.4.137
-    hostname: 192.168.4.137
+    ip-address: 172.24.174.30
+    hostname: 172.24.174.30
     health-check-url-path: /actuator/health
   client:
     # 客户端从Eureka Server集群里更新Eureka Server信息的频率
@@ -38,7 +38,7 @@ eureka:
     # 定义从注册中心获取注册服务的信息
     registry-fetch-interval-seconds: 15
     service-url:
-      defaultZone: http://47.108.78.70:8761/eureka/
+      defaultZone: http://172.24.174.30:8761/eureka/
 logging:
   file: /mengcc-cloud/logs/mengcc-config-server.log
 mengcc:
