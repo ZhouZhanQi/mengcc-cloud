@@ -1,3 +1,6 @@
+info:
+  description: 配置中心
+  version: 1.0.0
 server:
   port: 8768
 spring:
@@ -7,10 +10,10 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/ZhouZhanQi/mengcc-config.git
+          uri: https://github.com/ZhouZhanQi/mengcc-config
           username: ZhouZhanQi
           password: jie116di825
-          search-paths: ${doyd.yml.repo-dir}/{application}
+          search-paths: ${mengcc.yml.repo-dir}/{application}
 management:
   endpoints:
     web:
@@ -25,7 +28,6 @@ management:
 eureka:
   instance:
     prefer-ip-address: true
-    instance-id: ${eureka.instance.ip-address}:${server.port}
     health-check-url-path: /actuator/health
   client:
     # 客户端从Eureka Server集群里更新Eureka Server信息的频率
@@ -34,9 +36,9 @@ eureka:
     registry-fetch-interval-seconds: 15
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka/
-doyd:
+mengcc:
   yml:
     repo-dir: /config-repo
     backup-dir: /config-backup
 logging:
-  file: doyd-config-server
+  file: /mengcc-cloud/logs/mengcc-config-server.log
