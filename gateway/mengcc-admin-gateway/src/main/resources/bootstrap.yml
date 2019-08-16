@@ -1,20 +1,13 @@
-info:
-  description: 配置中心
-  version: 1.0.0
 server:
-  port: 8768
+  port: 8769
 spring:
   application:
-    name: mengcc-config-server
+    name: mengcc-admin-gateway
   cloud:
     config:
-      server:
-        git:
-          uri: https://github.com/ZhouZhanQi/mengcc-config
-          username: ZhouZhanQi
-          password: jie116di825
-          search-paths: ${mengcc.yml.repo-dir}/{application}
-          skipSslValidation: true
+      discovery:
+        service-id: mengcc-config-server
+        enabled: true
 management:
   endpoints:
     web:
@@ -25,7 +18,7 @@ management:
         show-details: ALWAYS
   endpoint:
     logfile:
-      external-file: /mengcc-cloud/logs/mengcc-config-server.log
+      external-file: /mengcc-cloud/logs/mengcc-admin-gateway.log
 eureka:
   instance:
     prefer-ip-address: true
@@ -40,8 +33,4 @@ eureka:
     service-url:
       defaultZone: http://47.108.78.70:8761/eureka/
 logging:
-  file: /mengcc-cloud/logs/mengcc-config-server.log
-mengcc:
-  yml:
-    repo-dir: /config-repo
-    backup-dir: /config-backup
+  file: /mengcc-cloud/logs/mengcc-admin-gateway.log
