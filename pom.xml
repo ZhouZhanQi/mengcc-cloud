@@ -10,6 +10,10 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>mengcc-eureka-server</module>
+        <module>mengcc-config-server</module>
+        <module>montior/mengcc-boot-admin</module>
+        <module>microservice/base-admin-user</module>
+        <module>gateway/mengcc-admin-gateway</module>
     </modules>
 
     <properties>
