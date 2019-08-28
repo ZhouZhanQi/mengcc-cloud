@@ -1,4 +1,4 @@
-package com.mengcc.adminuser;
+package com.mengcc.ms.adminuser;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
