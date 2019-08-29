@@ -1,4 +1,4 @@
-package com.mengcc.ms.adminuser.constants;
+package com.mengcc.ms.adminuser.model.constants;
 
 /**
  * @author zhouzq

@@ -1,7 +1,7 @@
 package com.mengcc.ms.adminuser.config;
 
 
-import com.mengcc.ms.adminuser.constants.CacheKeys;
+import com.mengcc.ms.adminuser.model.constants.CacheKeys;
 import com.mengcc.cache.aspect.CacheHandleAspect;
 import com.mengcc.cache.config.RedisConfigHelper;
 import com.mengcc.cache.storage.CacheStorage;
