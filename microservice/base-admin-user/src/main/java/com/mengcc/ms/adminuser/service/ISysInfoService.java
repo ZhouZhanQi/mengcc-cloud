@@ -21,4 +21,10 @@ public interface ISysInfoService {
      * @param sysInfo
      */
     void updateSysInfo(SysInfo sysInfo);
+
+    /**
+     * 删除系统信息
+     * @param sysCode
+     */
+    void deleteSysInfo(String sysCode);
 }

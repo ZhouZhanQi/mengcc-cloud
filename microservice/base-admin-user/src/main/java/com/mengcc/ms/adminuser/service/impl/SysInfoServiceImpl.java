@@ -43,6 +43,11 @@ public class SysInfoServiceImpl implements ISysInfoService {
         }
 
         updateWrapper.eq("sysCode", sysInfo.getSysCode());
-        sysInfoMapper.update(new SysInfo(), updateWrapper);
+        int updateCount = sysInfoMapper.update(new SysInfo(), updateWrapper);
+    }
+
+    @Override
+    public void deleteSysInfo(String sysCode) {
+        sysInfoMapper.deleteById(sysCode);
     }
 }
