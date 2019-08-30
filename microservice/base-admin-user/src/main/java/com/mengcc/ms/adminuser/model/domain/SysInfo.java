@@ -25,13 +25,13 @@ public class SysInfo {
 
     @TableId(type = IdType.INPUT)
     @NotBlank(message = "系统编码不能为空", groups = {Default.class, UpdateGroup.class})
-    @Size(min = 6, max = 32, message = "系统编码长度错误，最小长度6，最大长度32")
+    @Size(min = 6, max = 32, message = "系统编码长度错误，最小长度6，最大长度32", groups = {Default.class, UpdateGroup.class})
     @ApiModelProperty(value = "系统编码", required = true)
     private String sysCode;
 
     @NotBlank(message = "系统名称不能为空")
     @Size(max = 64, message = "系统名称长度错误，最小长度1，最大长度64", groups = {Default.class, UpdateGroup.class})
-    @ApiModelProperty(value = "系统名称")
+    @ApiModelProperty(value = "系统名称", required = true)
     private String sysName;
 
     @Max(value = 128, message = "备注最大长度128", groups = {Default.class, UpdateGroup.class})

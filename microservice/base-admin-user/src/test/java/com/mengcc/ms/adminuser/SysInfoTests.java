@@ -1,5 +1,7 @@
 package com.mengcc.ms.adminuser;
 
+import com.mengcc.core.utils.ValidatorUtils;
+import com.mengcc.core.validate.UpdateGroup;
 import com.mengcc.ms.adminuser.model.domain.SysInfo;
 import com.mengcc.ms.adminuser.service.ISysInfoService;
 import org.junit.Test;
@@ -23,6 +25,8 @@ public class SysInfoTests {
     @Test
     public void testSysInfoSave(){
         SysInfo sysInfo = new SysInfo();
-        sysInfoService.saveSysInfo(sysInfo);
+        sysInfo.setSysCode("aaaaaa");
+        ValidatorUtils.validate(sysInfo, UpdateGroup.class);
+        sysInfoService.updateSysInfo(sysInfo);
     }
 }
