@@ -12,6 +12,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import javax.validation.groups.Default;
+import java.io.Serializable;
 
 /**
  * @author zhouzq
@@ -21,7 +22,9 @@ import javax.validation.groups.Default;
 @Data
 @ApiModel("系统信息表")
 @TableName("sys_info")
-public class SysInfo {
+public class SysInfo implements Serializable {
+
+    private static final long serialVersionUID = -5652589478749154566L;
 
     @TableId(type = IdType.INPUT)
     @NotBlank(message = "系统编码不能为空", groups = {Default.class, UpdateGroup.class})
@@ -30,7 +33,7 @@ public class SysInfo {
     private String sysCode;
 
     @NotBlank(message = "系统名称不能为空")
-    @Size(max = 64, message = "系统名称长度错误，最小长度1，最大长度64", groups = {Default.class, UpdateGroup.class})
+    @Size(max = 64, message = "系统名称长度错误，最大长度64", groups = {Default.class, UpdateGroup.class})
     @ApiModelProperty(value = "系统名称", required = true)
     private String sysName;
 
