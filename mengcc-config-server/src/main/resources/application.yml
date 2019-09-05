@@ -12,7 +12,7 @@ spring:
         git:
           uri: https://github.com/ZhouZhanQi/mengcc-config
           username: ZhouZhanQi
-          password: jie116di825
+          password: 19931121@Zzq
           search-paths: ${mengcc.yml.repo-dir}/{application}
           skipSslValidation: true
 management:
