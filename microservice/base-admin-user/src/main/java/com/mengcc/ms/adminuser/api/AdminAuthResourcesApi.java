@@ -113,12 +113,27 @@ public class AdminAuthResourcesApi {
     }
 
 
+    @ApiOperation(value = "根据系统编码，获取系统模块信息", notes = "系统模块信息")
+    @GetMapping("/modules/{modelCode}")
+    public ResponseVo<List<SysAction>> sysActionList(@PathVariable ("modelCode") String modelCode) {
+        return ResponseVo.success(filterSysAction(modelCode));
+    }
+
+
     //根据系统编码过滤系统模块信息
     private List<SysModule> filterSysModule(String sysCode) {
         Preconditions.checkArgument(StringUtils.isNoneBlank(sysCode), "系统编码不能为空");
         return sysModuleService.listAll().stream()
                 .filter(sysModule -> sysCode.equals(sysModule.getSysCode()))
                 .sorted(Comparator.comparing(SysModule::getOrderNum))
+                .collect(Collectors.toList());
+    }
+
+    //根据模块编码过滤系统操作信息
+    private List<SysAction> filterSysAction(String modelCode) {
+        Preconditions.checkArgument(StringUtils.isNoneBlank(modelCode), "模块编码不能为空");
+        return sysActionService.listAll().stream()
+                .filter(sysAction -> modelCode.equals(sysAction.getModuleCode()))
                 .collect(Collectors.toList());
     }
 }

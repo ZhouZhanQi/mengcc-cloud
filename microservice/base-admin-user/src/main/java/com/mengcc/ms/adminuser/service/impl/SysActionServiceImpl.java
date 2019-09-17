@@ -1,5 +1,7 @@
 package com.mengcc.ms.adminuser.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.google.common.base.Preconditions;
 import com.mengcc.core.exceptions.DataUpdateException;
@@ -9,6 +11,8 @@ import com.mengcc.ms.adminuser.model.domain.SysAction;
 import com.mengcc.ms.adminuser.service.ISysActionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author zhouzq
@@ -52,5 +56,11 @@ public class SysActionServiceImpl implements ISysActionService {
     public void deleteSysAction(String actionCode) {
         Preconditions.checkArgument(StringUtils.isNotBlank(actionCode), "模块操作编码不能为空");
         sysActionMapper.deleteById(actionCode);
+    }
+
+    @Override
+    public List<SysAction> listAll() {
+        Wrapper<SysAction> wrapper = new QueryWrapper<>();
+        return sysActionMapper.selectList(wrapper);
     }
 }

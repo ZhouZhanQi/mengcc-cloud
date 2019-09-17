@@ -2,6 +2,8 @@ package com.mengcc.ms.adminuser.service;
 
 import com.mengcc.ms.adminuser.model.domain.SysAction;
 
+import java.util.List;
+
 /**
  * @author zhouzq
  * @date 2019/9/5
@@ -26,5 +28,12 @@ public interface ISysActionService {
      * @param actionCode
      */
     void deleteSysAction(String actionCode);
+
+
+    /**
+     * 查询所有请求操作
+     * @return
+     */
+    List<SysAction> listAll();
 
 }
