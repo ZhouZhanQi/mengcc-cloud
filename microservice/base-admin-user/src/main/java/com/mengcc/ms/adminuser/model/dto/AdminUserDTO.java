@@ -13,7 +13,7 @@ import lombok.Data;
 @ApiModel("后台用户信息")
 public class AdminUserDTO {
 
-    @ApiModelProperty(value = "用户Id", required = true)
+    @ApiModelProperty(value = "用户Id", required = true, example = "1")
     private Long userId;
 
     @ApiModelProperty("用户名")
@@ -33,4 +33,12 @@ public class AdminUserDTO {
 
     @ApiModelProperty("部门")
     private String department;
+
+    /**
+     * 校验密码
+     * @return
+     */
+    public boolean validatePassword() {
+        return this.password.equals(this.confirmPassword);
+    }
 }

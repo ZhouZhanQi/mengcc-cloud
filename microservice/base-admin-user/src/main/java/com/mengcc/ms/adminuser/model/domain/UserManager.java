@@ -3,6 +3,7 @@ package com.mengcc.ms.adminuser.model.domain;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.mengcc.ms.adminuser.model.enums.UserStateEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -20,7 +21,7 @@ import java.time.LocalDateTime;
 public class UserManager {
 
     @TableId(type = IdType.AUTO)
-    @ApiModelProperty("主键自增Id")
+    @ApiModelProperty(value = "主键自增Id", example = "1")
     private Long userId;
 
     @ApiModelProperty("用户名")
@@ -37,6 +38,9 @@ public class UserManager {
 
     @ApiModelProperty("部门")
     private String department;
+
+    @ApiModelProperty(value = "用户状态", example = "NORMAL")
+    private UserStateEnum state;
 
     @ApiModelProperty("创建时间")
     private LocalDateTime ctime;
