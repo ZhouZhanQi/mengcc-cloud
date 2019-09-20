@@ -50,7 +50,7 @@ public class AdminAuthResourcesApi {
     }
 
     @ApiOperation(value = "更新系统信息", notes = "系统信息变更")
-    @PatchMapping("/systems")
+    @PutMapping("/systems")
     public ResponseVo sysInfoUpdate(@Validated(UpdateGroup.class) @RequestBody SysInfo sysInfo){
         sysInfoService.updateSysInfo(sysInfo);
         return ResponseVo.success();
@@ -71,7 +71,7 @@ public class AdminAuthResourcesApi {
     }
 
     @ApiOperation(value = "更新系统模块信息", notes = "系统模块信息变更")
-    @PatchMapping("/modules")
+    @PutMapping("/modules")
     public ResponseVo sysModuleUpdate(@Validated(UpdateGroup.class) @RequestBody SysModule sysModule) {
         sysModuleService.updateSysModule(sysModule);
         return ResponseVo.success();
@@ -99,7 +99,7 @@ public class AdminAuthResourcesApi {
     }
 
     @ApiOperation(value = "更新模块操作信息", notes = "模块操作信息变更")
-    @PatchMapping("/actions")
+    @PutMapping("/actions")
     public ResponseVo sysActionUpdate(@Validated(UpdateGroup.class) @RequestBody SysAction sysAction) {
         sysActionService.updateSysAction(sysAction);
         return ResponseVo.success();

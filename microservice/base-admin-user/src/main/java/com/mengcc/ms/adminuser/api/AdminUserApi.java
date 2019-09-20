@@ -19,7 +19,7 @@ import javax.validation.constraints.NotNull;
  */
 @Api(tags = {"后台用户管理接口"})
 @RestController
-@RequestMapping(value = "/admin/manager/", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(value = "/admin/manager", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class AdminUserApi {
 
     @Autowired
@@ -33,7 +33,7 @@ public class AdminUserApi {
     }
 
     @ApiOperation(value = "更新用户信息", notes = "后台用户更新")
-    @PatchMapping("/users")
+    @PutMapping("/users")
     public ResponseVo userManagerEdit(@RequestBody AdminUserDTO adminUser) {
         userManagerService.updateUserManager(adminUser);
         return ResponseVo.success();
@@ -46,7 +46,7 @@ public class AdminUserApi {
         return ResponseVo.success();
     }
 
-    @ApiOperation(value = "启用/禁用 用户", notes = "用户状态biang")
+    @ApiOperation(value = "启用/禁用 用户", notes = "用户状态变更")
     @PatchMapping("/users/{userId}/{state}")
     public ResponseVo changeUserManagerState(@NotNull(message = "用户Id不能为空") @PathVariable ("userId") Long userId, @NotNull(message = "变更状态不能为空") @PathVariable("state") UserStateEnum state) {
         userManagerService.updateUserManager(userId, state);
