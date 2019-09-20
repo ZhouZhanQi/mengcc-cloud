@@ -41,6 +41,11 @@ public class SysActionServiceImpl implements ISysActionService {
         if (StringUtils.isNotBlank(sysAction.getActionUrl())) {
             updateWrapper.set("actionUrl", sysAction.getActionUrl());
         }
+
+        if (sysAction.getActionMethod() != null) {
+            updateWrapper.set("actionMethod", sysAction.getActionMethod());
+        }
+
         if (StringUtils.isNotBlank(sysAction.getRemark())) {
             updateWrapper.set("remark", sysAction.getRemark());
         }

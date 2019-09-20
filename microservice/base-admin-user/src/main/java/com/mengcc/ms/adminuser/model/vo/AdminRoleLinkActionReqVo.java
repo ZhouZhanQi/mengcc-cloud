@@ -17,10 +17,8 @@ import java.util.List;
 @Data
 public class AdminRoleLinkActionReqVo implements Serializable {
 
-    @ApiModelProperty(value = "角色编码", required = true)
-    private String roleCode;
+    private static final long serialVersionUID = -2001023286592419352L;
 
     @ApiModelProperty(value = "权限编码列表", required = true)
     private List<String> actionList;
-
 }

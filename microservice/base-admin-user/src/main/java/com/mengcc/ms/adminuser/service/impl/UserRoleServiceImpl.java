@@ -7,10 +7,12 @@ import com.mengcc.core.utils.StringUtils;
 import com.mengcc.ms.adminuser.mapper.UserRoleMapper;
 import com.mengcc.ms.adminuser.model.domain.UserRole;
 import com.mengcc.ms.adminuser.service.IUserRoleService;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -54,10 +56,13 @@ public class UserRoleServiceImpl implements IUserRoleService {
     public void deleteUserRole(String roleCode) {
         Preconditions.checkArgument(StringUtils.isNotBlank(roleCode), "角色编码不能为空");
         userRoleMapper.deleteById(roleCode);
+        //todo delete user_access user_role_access
     }
 
     @Override
     public void linkActions(String roleCode, List<String> actionList) {
-
+        Preconditions.checkArgument(StringUtils.isNotBlank(roleCode), "角色编码不能为空");
+        Preconditions.checkArgument(!CollectionUtils.isEmpty(actionList), "权限编码列表不能为空");
+        //todo save action link
     }
 }

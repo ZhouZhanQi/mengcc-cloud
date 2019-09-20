@@ -6,6 +6,7 @@ package com.mengcc.ms.adminuser.api;
  * @desc
  */
 
+import com.mengcc.core.utils.StringUtils;
 import com.mengcc.core.vo.ResponseVo;
 import com.mengcc.ms.adminuser.model.domain.UserRole;
 import com.mengcc.ms.adminuser.model.vo.AdminRoleLinkActionReqVo;
@@ -14,10 +15,12 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 
 /**
  * @author zhouzq
@@ -46,11 +49,17 @@ public class AdminRoleApi {
         return ResponseVo.success();
     }
 
+    @ApiOperation(value = "删除角色信息", notes = "后台角色信息删除")
+    @DeleteMapping("/roles/{roleCode}")
+    public ResponseVo userRoleDelete(@PathVariable("roleCode") @NotBlank(message = "角色编码不能为空") String roleCode) {
+        userRoleService.deleteUserRole(roleCode);
+        return ResponseVo.success();
+    }
 
     @ApiModelProperty(value = "角色关联系统操作权限", notes = "关联操作信息")
-    @PostMapping("/roles/actions")
-    public ResponseVo userRoleLinkActions(@RequestBody AdminRoleLinkActionReqVo reqVo) {
-        userRoleService.linkActions(reqVo.getRoleCode(), reqVo.getActionList());
+    @PostMapping("/roles/{roleCode}/actions")
+    public ResponseVo userRoleLinkActions(@PathVariable("roleCode") @NotBlank(message = "角色编码不能为空") String roleCode, @RequestBody AdminRoleLinkActionReqVo reqVo) {
+        userRoleService.linkActions(roleCode, reqVo.getActionList());
         return ResponseVo.success();
     }
 }
