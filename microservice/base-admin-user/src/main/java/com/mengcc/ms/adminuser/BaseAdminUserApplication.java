@@ -12,5 +12,4 @@ public class BaseAdminUserApplication {
     public static void main(String[] args) {
         SpringApplication.run(BaseAdminUserApplication.class, args);
     }
-
 }

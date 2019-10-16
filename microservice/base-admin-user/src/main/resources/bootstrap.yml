@@ -1,21 +1,32 @@
+info:
+  version: 1.0
+  description: 后台用户中心
+server:
+  port: 9090
 spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://nacos.mengcc.cn/
+      config:
+        server-addr: http://nacos.mengcc.cn
+        file-extension: yaml
+        group: DEV_GROUP
   datasource:
     dynamic:
       p6spy: false
       druid:
         filters: stat
-eureka:
-  instance:
-    prefer-ip-address: true
-    ip-address: 47.108.78.70
-    hostname: 47.108.78.70
-  client:
-    # 客户端从Eureka Server集群里更新Eureka Server信息的频率
-    eureka-service-url-poll-interval-seconds: 60
-    # 定义从注册中心获取注册服务的信息
-    registry-fetch-interval-seconds: 15
-    service-url:
-      defaultZone: http://47.108.78.70:8761/eureka/
+  application:
+    name: base-admin-user
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    endpoint:
+      health:
+        show-details: ALWAYS
 mybatis-plus:
   # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
   # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
