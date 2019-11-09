@@ -10,7 +10,6 @@ public class MengccAdminGatewayApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(MengccAdminGatewayApplication.class, args);
-
     }
 
 }

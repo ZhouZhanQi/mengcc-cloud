@@ -1,13 +1,25 @@
+info:
+  version: 1.0
+  description: 后台网管路由
 server:
   port: 8769
 spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://nacos.mengcc.cn/
+      config:
+        server-addr: http://nacos.mengcc.cn
+        file-extension: yaml
+        group: DEV_GROUP
+    gateway:
+      routes:
+        - id: adminuser_router
+          uri: lb://base-admin-user
+          predicates:
+          - Path=/admin/**
   application:
     name: mengcc-admin-gateway
-  cloud:
-    config:
-      discovery:
-        service-id: mengcc-config-server
-        enabled: true
 management:
   endpoints:
     web:
@@ -16,21 +28,3 @@ management:
     endpoint:
       health:
         show-details: ALWAYS
-  endpoint:
-    logfile:
-      external-file: /mengcc-cloud/logs/mengcc-admin-gateway.log
-eureka:
-  instance:
-    prefer-ip-address: true
-    ip-address: 192.168.4.137
-    hostname: 192.168.4.137
-    health-check-url-path: /actuator/health
-  client:
-    # 客户端从Eureka Server集群里更新Eureka Server信息的频率
-    eureka-service-url-poll-interval-seconds: 60
-    # 定义从注册中心获取注册服务的信息
-    registry-fetch-interval-seconds: 15
-    service-url:
-      defaultZone: http://47.108.78.70:8761/eureka/
-logging:
-  file: /mengcc-cloud/logs/mengcc-admin-gateway.log
