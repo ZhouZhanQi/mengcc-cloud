@@ -5,7 +5,7 @@
     <property name="spring.application.name" value="base-admin-user"/>
 
     <!-- 日志默认输出路径 -->
-    <property name="default_log_path" value="/logs/${spring.application.name}/" />
+    <property name="default_log_path" value="/Users/zhouzhanqi/logs/${spring.application.name}/" />
     <!-- 日志路径 -->
     <property name="LOG_PATH" value="${LOG_PATH:-${default_log_path}}"/>
 

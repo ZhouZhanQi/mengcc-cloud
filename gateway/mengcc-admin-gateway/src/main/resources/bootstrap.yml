@@ -20,6 +20,16 @@ spring:
           - Path=/admin/**
   application:
     name: mengcc-admin-gateway
+mengcc:
+  open-urls:
+    - /admin/sso/login
+    - /admin/sso/logout
+    - /admin/sso/token/refresh
+    # 登陆后即可访问的url列表(ant path规则)
+  public-urls:
+    - /admin/user/self  # 获取用户自己的扩展信息
+    - /admin/user/password/change  # 修改自己的密码
+    - /admin/role/sys/all # 获取系统信息列表
 management:
   endpoints:
     web:
