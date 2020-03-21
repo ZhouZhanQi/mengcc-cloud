@@ -9,9 +9,9 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: http://nacos.mengcc.cn/
+        server-addr: http://mengcc.cn/nacos/
       config:
-        server-addr: http://nacos.mengcc.cn
+        server-addr: http://mengcc.cn/nacos/
         file-extension: yaml
         group: DEV_GROUP
 management:
